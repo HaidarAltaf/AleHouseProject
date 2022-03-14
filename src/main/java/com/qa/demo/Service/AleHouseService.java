@@ -1,5 +1,6 @@
 package com.qa.demo.Service;
 
+<<<<<<< HEAD
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -39,5 +40,8 @@ public class AleHouseService implements AleHouseServiceMethods<AleHouse>{
 		return false;
 	}
 
+=======
+public class AleHouseService {
+>>>>>>> 28f8bd7aa9af7e41f7d8bc566d13b9890c8cf225
 
 }

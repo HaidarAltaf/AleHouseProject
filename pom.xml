@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+=======
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+>>>>>>> 28f8bd7aa9af7e41f7d8bc566d13b9890c8cf225
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.6.4</version>
+<<<<<<< HEAD
 		<relativePath /> <!-- lookup parent from repository -->
+=======
+		<relativePath/> <!-- lookup parent from repository -->
+>>>>>>> 28f8bd7aa9af7e41f7d8bc566d13b9890c8cf225
 	</parent>
 	<groupId>com.qa.Shark</groupId>
 	<artifactId>Springdemo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+<<<<<<< HEAD
 	<name>SpringShark</name>
+=======
+	<name>AleHouseInWitcher</name>
+>>>>>>> 28f8bd7aa9af7e41f7d8bc566d13b9890c8cf225
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
@@ -41,12 +54,15 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
+<<<<<<< HEAD
 			<groupId>nl.jqno.equalsverifier</groupId>
 			<artifactId>equalsverifier</artifactId>
 			<version>3.6</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+=======
+>>>>>>> 28f8bd7aa9af7e41f7d8bc566d13b9890c8cf225
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
@@ -67,4 +83,8 @@
 		</plugins>
 	</build>
 
+<<<<<<< HEAD
 </project>
+=======
+</project>
+>>>>>>> 28f8bd7aa9af7e41f7d8bc566d13b9890c8cf225
