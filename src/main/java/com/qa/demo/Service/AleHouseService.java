@@ -49,7 +49,6 @@ public class AleHouseService implements AleHouseServiceMethods<AleHouse>{
 		Optional<AleHouse> existing = this.repo.findById(id);
 		if(existing.isPresent()) {
 			AleHouse existance = existing.get();
-			existance.setId(id);
 			existance.setDrink(existance.getDrink());
 			existance.setFood(existance.getFood());
 			existance.setName(existance.getName());
