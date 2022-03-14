@@ -1,9 +1,12 @@
 package com.qa.demo.Entity;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 public class AleHouse {
 
 =======
+=======
+>>>>>>> service
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -127,5 +130,9 @@ public class AleHouse {
 				+ ", GameOfGwent=" + GameOfGwent + "]";
 	}
 	
+<<<<<<< HEAD
 >>>>>>> entity
 }
+=======
+}
+>>>>>>> service

@@ -6,4 +6,8 @@ import com.qa.demo.Entity.AleHouse;
 
 public interface AleHouseRepo extends JpaRepository<AleHouse, Long>{
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> service
