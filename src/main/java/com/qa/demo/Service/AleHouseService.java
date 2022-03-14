@@ -1,28 +1,16 @@
 package com.qa.demo.Service;
 
 import java.util.List;
-<<<<<<< HEAD
-=======
 import java.util.Optional;
->>>>>>> service
 
 import org.springframework.stereotype.Service;
 
 import com.qa.demo.Entity.AleHouse;
-<<<<<<< HEAD
-=======
 import com.qa.demo.Repo.AleHouseRepo;
->>>>>>> service
 
 @Service
 public class AleHouseService implements AleHouseServiceMethods<AleHouse>{
 
-<<<<<<< HEAD
-	@Override
-	public AleHouse create(AleHouse AleHouse) {
-		// TODO Auto-generated method stub
-		return null;
-=======
 	private AleHouseRepo repo;
 
 	public AleHouseService(AleHouseRepo repo) {
@@ -40,30 +28,15 @@ public class AleHouseService implements AleHouseServiceMethods<AleHouse>{
 	@Override
 	public AleHouse create(AleHouse AleHouse) {
 		return this.repo.save(AleHouse);
->>>>>>> service
 	}
 
 	@Override
 	public List<AleHouse> readAll() {
-<<<<<<< HEAD
-		// TODO Auto-generated method stub
-		return null;
-=======
 		return this.repo.findAll();
->>>>>>> service
 	}
 
 	@Override
 	public AleHouse readById(long id) {
-<<<<<<< HEAD
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public AleHouse update(long id, AleHouse AleHouse) {
-		// TODO Auto-generated method stub
-=======
 		Optional<AleHouse> AleHouseId = this.repo.findById(id);
 		if(AleHouseId.isPresent()){
 			return AleHouseId.get();
@@ -84,22 +57,13 @@ public class AleHouseService implements AleHouseServiceMethods<AleHouse>{
 			existance.setGameOfGwent(true);
 			return this.repo.saveAndFlush(existance);
 		}
->>>>>>> service
 		return null;
 	}
 
 	@Override
 	public boolean delete(long id) {
-<<<<<<< HEAD
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-}
-=======
 		this.repo.deleteById(id);
 		return !this.repo.existsById(id);
 	}
 
 }
->>>>>>> service
