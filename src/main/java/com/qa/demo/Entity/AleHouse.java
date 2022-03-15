@@ -2,6 +2,7 @@ package com.qa.demo.Entity;
 
 import java.util.Objects;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -104,7 +105,7 @@ public class AleHouse {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(GameOfGwent, drink, food, id, name, price);
+		return Objects.hash(GameOfGwent, drink, food, name, price);
 	}
 
 	@Override
@@ -117,8 +118,7 @@ public class AleHouse {
 			return false;
 		AleHouse other = (AleHouse) obj;
 		return GameOfGwent == other.GameOfGwent && Objects.equals(drink, other.drink)
-				&& Objects.equals(food, other.food) && id == other.id && Objects.equals(name, other.name)
-				&& price == other.price;
+				&& Objects.equals(food, other.food) && Objects.equals(name, other.name) && price == other.price;
 	}
 
 	@Override
