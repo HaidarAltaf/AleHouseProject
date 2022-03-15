@@ -45,12 +45,12 @@ public class AleHouseServiceTest {
 		AleHouse orders = new AleHouse("Raspberry juice", "Wyvern meat", 41, "Emhyr Var Emreis", true);
 		AleHouse outgoings = new AleHouse(1L, "Raspberry juice", "Wyvern meat", 41, "Emhyr Var Emreis", true);
 		
-		Mockito.when(this.repo.findById(1L)).thenReturn(optionalOutgoings);
+		Mockito.when(this.repo.findById(Mockito.anyLong())).thenReturn(optionalOutgoings);
 		Mockito.when(this.repo.saveAndFlush(outgoings)).thenReturn(outgoings);
 		
 		assertEquals(outgoings, this.service.update(Mockito.anyLong(), orders));
 		
-		Mockito.verify(this.repo, Mockito.times(1)).findById(1L);
+		Mockito.verify(this.repo, Mockito.times(1)).findById(Mockito.anyLong());
 		Mockito.verify(this.repo, Mockito.times(1)).saveAndFlush(outgoings);
 	}
 	
@@ -66,7 +66,7 @@ public class AleHouseServiceTest {
         
         Mockito.verify(this.repo, Mockito.times(1)).findAll();
     }
-	
+	  
 	@Test
 	public void readByIdTest() {
 		Optional<AleHouse> optionalOutgoings = Optional.of(new AleHouse("Raspberry juice", "Wyvern meat", 41, "Emhyr Var Emreis", true));

@@ -31,7 +31,7 @@ public class AleHouseController {
 	public ResponseEntity<AleHouse> createAleHouse(@RequestBody AleHouse AleHouse) {
 		return new ResponseEntity<AleHouse>(this.service.create(AleHouse), HttpStatus.CREATED);
 	}
-
+  
 	@PutMapping("/update/{id}")
 	//update requires both RequestBody and PathVariable as it takes in the id, and also passes through the new object information
 	public ResponseEntity<AleHouse> updateAleHouse(@PathVariable long id, @RequestBody AleHouse AleHouse){

@@ -80,7 +80,7 @@ public class AleHouse {
 	public void setGameOfGwent(boolean gameOfGwent) {
 		GameOfGwent = gameOfGwent;
 	}
-
+  
 	public AleHouse() {}
 
 	public AleHouse(long id, String food, String drink, int price, String name, boolean gameOfGwent) {

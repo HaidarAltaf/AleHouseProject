@@ -58,7 +58,7 @@ public class AleHouseService implements AleHouseServiceMethods<AleHouse>{
 		}
 		return null;
 	}
-
+  
 	@Override
 	public boolean delete(long id) {
 		this.repo.deleteById(id);

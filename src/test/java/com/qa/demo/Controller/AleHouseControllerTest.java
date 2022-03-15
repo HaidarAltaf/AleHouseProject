@@ -62,7 +62,7 @@ public class AleHouseControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(content().json(AleHouseOutputAsJSON));
 	}
-	
+	  
 	@Test
 	public void testReadById() throws Exception {
 		RequestBuilder request = get("/duck/readById/2");
