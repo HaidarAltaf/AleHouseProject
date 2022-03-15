@@ -32,6 +32,7 @@ public class AleHouse {
 	@NotNull
 	private boolean GameOfGwent;
 
+	
 	public long getId() {
 		return id;
 	}
@@ -80,9 +81,7 @@ public class AleHouse {
 		GameOfGwent = gameOfGwent;
 	}
 
-	public AleHouse() {
-		super();
-	}
+	public AleHouse() {}
 
 	public AleHouse(long id, String food, String drink, int price, String name, boolean gameOfGwent) {
 		super();

@@ -24,6 +24,8 @@ import com.qa.demo.Entity.AleHouse;
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 public class AleHouseControllerTest {
+	//THIS IS INTEGRATION TESTING 
+	
 	@Autowired
 	private MockMvc mvc;
 
@@ -62,12 +64,16 @@ public class AleHouseControllerTest {
 	}
 	
 	@Test
-	public void readById() throws Exception {
-		AleHouse testSavedalehouse = new AleHouse("Beauclair white", "Poisoned apple", 100, "Triss", true);
-		String testSavedalehouseasJSON = this.mapper.writeValueAsString(testSavedalehouse);
-		RequestBuilder req = get("alehouse/readById/1");
+	public void testReadById() throws Exception {
+		RequestBuilder request = get("/duck/readById/2");
+
 		ResultMatcher checkStatus = status().isOk();
-		ResultMatcher checkBody = content().json(testSavedalehouseasJSON);
-		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
+
+		AleHouse savedAleHouse = new AleHouse(2, "Erveluce", "Grilled Chicken", 150, "Yennifer", true);
+		String savedAleHouseAsJSON = this.mapper.writeValueAsString(savedAleHouse);
+
+		ResultMatcher checkBody = content().json(savedAleHouseAsJSON);
+
+		this.mvc.perform(request).andExpect(checkStatus).andExpect(checkBody);
 	}
 }

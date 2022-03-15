@@ -44,15 +44,15 @@ public class AleHouseService implements AleHouseServiceMethods<AleHouse>{
 		return null;
 	}
 
-	@Override 
+	@Override
 	public AleHouse update(long id, AleHouse AleHouse) {
 		Optional<AleHouse> existing = this.repo.findById(id);
 		if(existing.isPresent()) {
 			AleHouse existance = existing.get();
-			existance.setDrink(existance.getDrink());
-			existance.setFood(existance.getFood());
-			existance.setName(existance.getName());
-			existance.setPrice(existance.getPrice());
+			existance.setDrink(AleHouse.getDrink());
+			existance.setFood(AleHouse.getFood());
+			existance.setName(AleHouse.getName());
+			existance.setPrice(AleHouse.getPrice());
 			existance.setGameOfGwent(true);
 			return this.repo.saveAndFlush(existance);
 		}
