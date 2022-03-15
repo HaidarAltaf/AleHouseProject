@@ -33,13 +33,11 @@ public class AleHouseController {
 	}
   
 	@PutMapping("/update/{id}")
-	//update requires both RequestBody and PathVariable as it takes in the id, and also passes through the new object information
 	public ResponseEntity<AleHouse> updateAleHouse(@PathVariable long id, @RequestBody AleHouse AleHouse){
 		return new ResponseEntity<AleHouse>(this.service.update(id, AleHouse), HttpStatus.ACCEPTED);
 	}
 	
 	@GetMapping("/readById/{id}")
-	//@PathVariable allows us to pass a variable (in this case ID) to the path & service.readById method
 	public ResponseEntity<AleHouse> readById(@PathVariable long id){
 		return new ResponseEntity<AleHouse>(this.service.readById(id), HttpStatus.OK);
 	}
