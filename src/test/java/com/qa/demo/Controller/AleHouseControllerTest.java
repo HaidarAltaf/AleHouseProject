@@ -14,6 +14,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.jdbc.Sql;
+import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.ResultMatcher;
@@ -23,6 +25,7 @@ import com.qa.demo.Entity.AleHouse;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
+@Sql(executionPhase = ExecutionPhase.BEFORE_TEST_METHOD, scripts = { "classpath:AleHouse-schema.sql", "classpath:AleHouse-data.sql" })
 public class AleHouseControllerTest {
 	//THIS IS INTEGRATION TESTING 
 	
@@ -59,13 +62,12 @@ public class AleHouseControllerTest {
 		
 		this.mvc.perform(get("/alehouse/readAll")
 				.contentType(MediaType.APPLICATION_JSON))
-				.andExpect(status().isOk())
-				.andExpect(content().json(AleHouseOutputAsJSON));
+				.andExpect(status().isOk()).andExpect(content().json(AleHouseOutputAsJSON));
 	}
 	  
 	@Test
 	public void testReadById() throws Exception {
-		RequestBuilder request = get("/duck/readById/2");
+		RequestBuilder request = get("/AleHouse/readById/2");
 
 		ResultMatcher checkStatus = status().isOk();
 
