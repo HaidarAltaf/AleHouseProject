@@ -1,4 +1,4 @@
 INSERT INTO `ale_house`
-	(`gameOfGwent`, `drink`, `food`, `name`, `price`)
+	(`drink`, `food`, `price`, `name`, `game_Of_Gwent`)
 VALUES 
-	(true, 'Kaedweni stout', 'Potion of tir na lia', 'Geralt', 15);
+	('Kaedweni stout', 'Potion of tir na lia', 15, 'Geralt', true);

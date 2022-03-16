@@ -1,19 +1,24 @@
 package com.qa.demo.Controller;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 import org.springframework.test.web.servlet.MockMvc;
@@ -25,6 +30,7 @@ import com.qa.demo.Entity.AleHouse;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
+@ActiveProfiles("test")
 @Sql(executionPhase = ExecutionPhase.BEFORE_TEST_METHOD, scripts = { "classpath:AleHouse-schema.sql", "classpath:AleHouse-data.sql" })
 public class AleHouseControllerTest {
 	//THIS IS INTEGRATION TESTING 
@@ -40,10 +46,10 @@ public class AleHouseControllerTest {
 
 		AleHouse testAleHouse = new AleHouse("Erveluce", "Grilled Chicken", 150, "Yennifer", true);
 		String testAleHouseAsJSON = this.mapper.writeValueAsString(testAleHouse);
-		RequestBuilder req = post("/AleHouse/create").content(testAleHouseAsJSON)
-				.contentType(MediaType.APPLICATION_JSON);
+		RequestBuilder req = post("/alehouse/create").contentType(MediaType.APPLICATION_JSON)
+				.content(testAleHouseAsJSON);
 
-		AleHouse testSavedAleHouse = new AleHouse(2, "Erveluce", "Grilled Chicken", 150, "Yennifer", true);
+		AleHouse testSavedAleHouse = new AleHouse(2L, "Erveluce", "Grilled Chicken", 150, "Yennifer", true);
 		String testSavedAleHouseAsJSON = this.mapper.writeValueAsString(testSavedAleHouse);
 
 		ResultMatcher checkAleHouseStatus = status().isCreated();
@@ -54,7 +60,7 @@ public class AleHouseControllerTest {
 	
 	@Test
 	public void readAll() throws Exception {
-		AleHouse entry = new AleHouse("Beauclair white", "Poisoned apple", 100, "Triss", true);
+		AleHouse entry = new AleHouse(1L, "Potion of tir na lia", "Kaedweni stout", 15, "Geralt", true);
 		List<AleHouse> AleHouses = new ArrayList<>();
 		AleHouses.add(entry);
 		
@@ -67,15 +73,17 @@ public class AleHouseControllerTest {
 	  
 	@Test
 	public void testReadById() throws Exception {
-		RequestBuilder request = get("/AleHouse/readById/2");
+		RequestBuilder request = get("/alehouse/readById/1");
 
 		ResultMatcher checkStatus = status().isOk();
 
-		AleHouse savedAleHouse = new AleHouse(2, "Erveluce", "Grilled Chicken", 150, "Yennifer", true);
+		AleHouse savedAleHouse = new AleHouse(1L, "Potion of tir na lia", "Kaedweni stout", 15, "Geralt", true);
 		String savedAleHouseAsJSON = this.mapper.writeValueAsString(savedAleHouse);
 
 		ResultMatcher checkBody = content().json(savedAleHouseAsJSON);
 
 		this.mvc.perform(request).andExpect(checkStatus).andExpect(checkBody);
 	}
+	
+
 }
