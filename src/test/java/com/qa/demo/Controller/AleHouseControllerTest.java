@@ -1,6 +1,10 @@
 package com.qa.demo.Controller;
 
+<<<<<<< HEAD
 import static org.junit.jupiter.api.Assertions.assertEquals;
+=======
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+>>>>>>> dev
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -84,6 +88,33 @@ public class AleHouseControllerTest {
 
 		this.mvc.perform(request).andExpect(checkStatus).andExpect(checkBody);
 	}
+<<<<<<< HEAD
 	
 
+=======
+	@Test
+	public void updateTest() throws Exception{
+		AleHouse note = new AleHouse(1L, "Potion of tir na lia", "Kaedweni stout", 15, "Geralt", true);
+		String notedAleHouseAsJson = this.mapper.writeValueAsString(note);
+		
+		AleHouse result = new AleHouse(1L, "Potion of tir na lia", "Kaedweni stout", 15, "Geralt", true);
+		String resultAleHouseAsJson = this.mapper.writeValueAsString(result);
+		
+		this.mvc.perform(put("/alehouse/update/1")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(notedAleHouseAsJson)).andExpect(status().isAccepted()).andExpect(content().json(resultAleHouseAsJson));
+	}
+	
+	@Test
+	public void testDelete() throws Exception {
+		AleHouse tavernOrder = new AleHouse(1L, "Potion of tir na lia", "Kaedweni stout", 15, "Geralt", true);
+		
+		String savedAleHouseAsJSON = this.mapper.writeValueAsString(tavernOrder);
+		
+		this.mvc.perform(delete("/alehouse/delete/1")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(savedAleHouseAsJSON));
+
+	}
+>>>>>>> dev
 }
