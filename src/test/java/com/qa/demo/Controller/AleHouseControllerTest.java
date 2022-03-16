@@ -1,7 +1,9 @@
 package com.qa.demo.Controller;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -69,5 +71,29 @@ public class AleHouseControllerTest {
 		ResultMatcher checkStatus = status().isOk();
 		ResultMatcher checkBody = content().json(testSavedalehouseasJSON);
 		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
+	}
+	@Test
+	public void updateTest() throws Exception{
+		AleHouse note = new AleHouse(1L, "Potion of tir na lia", "Kaedweni stout", 15, "Geralt", true);
+		String notedAleHouseAsJson = this.mapper.writeValueAsString(note);
+		
+		AleHouse result = new AleHouse(1L, "Potion of tir na lia", "Kaedweni stout", 15, "Geralt", true);
+		String resultAleHouseAsJson = this.mapper.writeValueAsString(result);
+		
+		this.mvc.perform(put("/alehouse/update/1")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(notedAleHouseAsJson)).andExpect(status().isAccepted()).andExpect(content().json(resultAleHouseAsJson));
+	}
+	
+	@Test
+	public void testDelete() throws Exception {
+		AleHouse tavernOrder = new AleHouse(1L, "Potion of tir na lia", "Kaedweni stout", 15, "Geralt", true);
+		
+		String savedAleHouseAsJSON = this.mapper.writeValueAsString(tavernOrder);
+		
+		this.mvc.perform(delete("/alehouse/delete/1")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(savedAleHouseAsJSON));
+
 	}
 }
