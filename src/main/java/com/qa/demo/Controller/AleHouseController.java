@@ -48,13 +48,16 @@ public class AleHouseController {
 	}
 
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<Boolean> deleteAleHouse(@PathVariable long id) {
-		if (this.service.delete(id) == true) {
-			new ResponseEntity<Boolean>(HttpStatus.NO_CONTENT);
-		} else {
-			new ResponseEntity<Boolean>(HttpStatus.NOT_FOUND);
-		}
-		return null;
+	public ResponseEntity<?> deleteAleHouse(@PathVariable long id) {
+		//if else statement was returning 200 not 204 so i had to change it.
+//		if (this.service.delete(id) == true) {
+//			new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//		} else {
+//			new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//		}
+//		return null;
+		return (this.service.delete(id)) ? new ResponseEntity<>(HttpStatus.NO_CONTENT)
+				: new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
 }
