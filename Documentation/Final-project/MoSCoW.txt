@@ -1,0 +1,11 @@
+Must have:
+The ability to create a user, The ability to update a user, The ability to read all users and each individual user, The ability to delete a user, the ability to give a user an Id for their order. 
+
+Should have:
+A game of gwent always set to true, have a jar file. 
+
+Could have:
+Custom queries, Something that prints out when a user has been put into the database, If there is a user with the same name it adds it to their earlier order, When the order is done be able to delete it by pressing a button. 
+
+Wont have:
+The ability to play gwent, interacive menu, frontend, the ability to take money. 
