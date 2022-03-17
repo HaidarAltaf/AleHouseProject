@@ -18,7 +18,7 @@ import com.qa.demo.Entity.AleHouse;
 import com.qa.demo.Repo.AleHouseRepo;
 
 @SpringBootTest
-public class AleHouseServiceTest {
+public class AleHouseServiceUnitTest {
 	//THIS IS UNIT TESTING
 	
 	@Autowired
@@ -26,7 +26,7 @@ public class AleHouseServiceTest {
 	
 	@MockBean
 	private AleHouseRepo repo;
-	
+
 	@Test
 	public void createTest() {
 		AleHouse orders = new AleHouse("Beauclair white", "Poisoned apple", 100, "Triss", true);

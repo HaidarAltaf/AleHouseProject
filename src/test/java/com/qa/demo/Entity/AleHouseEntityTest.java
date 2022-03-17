@@ -14,7 +14,7 @@ public class AleHouseEntityTest {
 		EqualsVerifier.forClass(AleHouse.class).usingGetClass().verify();
 		;
 	}
-
+	
 	@Test
 	public void GetterAndSetterTest() {
 		AleHouse alehouse = new AleHouse(4, "Chicken", "Zerrikanian spirit", 5, "Ciri", true);

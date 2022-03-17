@@ -31,13 +31,14 @@ import com.qa.demo.Entity.AleHouse;
 @ActiveProfiles("test")
 @Sql(executionPhase = ExecutionPhase.BEFORE_TEST_METHOD, scripts = { "classpath:AleHouse-schema.sql",
 "classpath:AleHouse-data.sql" })
-public class AleHouseControllerTest {
+public class AleHouseControllerIntegrationTest {
+	//INTEGRATION TESTING
 	@Autowired
 	private MockMvc mvc;
 
 	@Autowired
 	private ObjectMapper mapper;
-
+	
 	@Test
 	public void testCreate() throws Exception {
 		AleHouse testAleHouse = new AleHouse("Erveluce", "Grilled Chicken", 150, "Yennifer", true);
