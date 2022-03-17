@@ -10,3 +10,7 @@ Coding the basics was sigificantly easier than i thought but the testing keeps o
 
 Possible improvements for future revisions of the project.
 Making so that it can add people to the same id by name.
+
+The link for my jira board.
+Please forgive that in the url is says sulav. I do not know know what the problem is but it is my jira board for the project. 
+https://sulav6094.atlassian.net/jira/software/projects/ST/boards/3/backlog
